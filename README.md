@@ -1,0 +1,2 @@
+# ngspice
+Various circuit simulations
