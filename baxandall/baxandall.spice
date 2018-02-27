@@ -5,7 +5,7 @@ r1 in  2      1k
 r2 2   3      5k
 r3 3   4      5k
 r4 4   gnd    1k
-c1 3   out    4n7
+c1 3   out    5n6
 
 *** Bass ***
 r11 in  6      1k
@@ -13,12 +13,13 @@ r12 6   7      5k
 r13 7   8      5k
 r14 8   gnd    1k
 c11 6   8      470n
-r15 out 7      10k
+r15 out 7      8k2
 
 
 
 
-rup in  out    47k
+rup in  30    47k
+cup 30  out    2u
 * rdn out gnd    47k
 rld out gnd    47k
 
@@ -30,9 +31,9 @@ v1 in gnd ac 1
 
 .control
 
-let lo_start = 500
-let lo_stop = 9500
-let lo_step = 4500
+let lo_start = 200
+let lo_stop = 9800
+let lo_step = 4800
 
 
 while lo_start le lo_stop
@@ -40,9 +41,9 @@ while lo_start le lo_stop
     let lo_other = 10000 - lo_start
     alter r13 lo_other
 
-    let hi_start = 500
-    let hi_stop = 9500
-    let hi_step = 4500
+    let hi_start = 200
+    let hi_stop = 9800
+    let hi_step = 4800
 
     while hi_start le hi_stop
         alter r2 hi_start
@@ -56,8 +57,6 @@ end
 
 plot db(ac1.v(out)) db(ac2.v(out)) db(ac3.v(out)) db(ac4.v(out)) db(ac5.v(out)) db(ac6.v(out)) db(ac7.v(out)) db(ac8.v(out)) db(ac9.v(out))
 .endc
-
-
 
 
 .END
