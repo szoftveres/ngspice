@@ -1,0 +1,63 @@
+* baxandall
+
+*** Treble **
+r1 in  2      1k
+r2 2   3      5k
+r3 3   4      5k
+r4 4   gnd    1k
+c1 3   out    4n7
+
+*** Bass ***
+r11 in  6      1k
+r12 6   7      5k
+r13 7   8      5k
+r14 8   gnd    1k
+c11 6   8      470n
+r15 out 7      10k
+
+
+
+
+rup in  out    47k
+* rdn out gnd    47k
+rld out gnd    47k
+
+v1 in gnd ac 1
+.ac dec 10 20 40k
+
+
+*** Loop ***
+
+.control
+
+let lo_start = 500
+let lo_stop = 9500
+let lo_step = 4500
+
+
+while lo_start le lo_stop
+    alter alter r12 lo_start
+    let lo_other = 10000 - lo_start
+    alter r13 lo_other
+
+    let hi_start = 500
+    let hi_stop = 9500
+    let hi_step = 4500
+
+    while hi_start le hi_stop
+        alter r2 hi_start
+        let hi_other = 10000 - hi_start
+        alter r3 hi_other
+        run
+        let hi_start = hi_start + hi_step
+    end
+    let lo_start = lo_start + lo_step
+end
+
+plot db(ac1.v(out)) db(ac2.v(out)) db(ac3.v(out)) db(ac4.v(out)) db(ac5.v(out)) db(ac6.v(out)) db(ac7.v(out)) db(ac8.v(out)) db(ac9.v(out))
+.endc
+
+
+
+
+.END

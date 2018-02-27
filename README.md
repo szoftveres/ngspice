@@ -1,2 +1,5 @@
 # ngspice
-Various circuit simulations
+
+Various circuit simulations using ngspice
+
+ * baxandall - Baxandall Tone Control
