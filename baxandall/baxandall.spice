@@ -18,13 +18,13 @@ r15 out 7      8k2
 
 
 
-rup in  30    47k
-cup 30  out    2u
+rup in  30    100k
+cup 30  out    1u
 * rdn out gnd    47k
-rld out gnd    47k
+rld out gnd    100k
 
 v1 in gnd ac 1
-.ac dec 10 20 40k
+.ac dec 10 20 20k
 
 
 *** Loop ***
